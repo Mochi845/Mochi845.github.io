@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventanas Premium</title>
+
+<style>
+/* ====== ESTILOS GENERALES ====== */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+/* ====== HEADER ====== */
+header {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ====== NAV ====== */
+nav {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00ffcc;
+}
+
+/* ====== SECCIONES ====== */
+section {
+    padding: 40px 20px;
+}
+
+/* ====== PRODUCTOS ====== */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.precio {
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e3c72;
+}
+
+/* ====== CARRITO ====== */
+#carrito {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* ====== FORMULARIO ====== */
+form {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Ventanas Premium</h1>
+    <p>Especialistas en ventanas modernas y eficientes</p>
+</header>
+
+<nav>
+    <a href="#productos">Productos</a>
+    <a href="#carrito">Carrito</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- ====== PRODUCTOS ====== -->
+<section id="productos">
+    <h2>Nuestros Productos</h2>
+
+    <div class="productos">
+        <div class="producto">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Ventana de Aluminio</h3>
+            <p>Aislamiento térmico y resistencia.</p>
+            <p class="precio">$150</p>
+            <button onclick="agregarCarrito('Ventana Aluminio', 150)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Ventana PVC</h3>
+            <p>Aislamiento acústico superior.</p>
+            <p class="precio">$180</p>
+            <button onclick="agregarCarrito('Ventana PVC', 180)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Ventana Corrediza</h3>
+            <p>Diseño moderno y elegante.</p>
+            <p class="precio">$200</p>
+            <button onclick="agregarCarrito('Ventana Corrediza', 200)">Agregar</button>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CARRITO ====== -->
+<section id="carrito">
+    <h2>Carrito de Compras</h2>
+    <div id="listaCarrito"></div>
+    <h3>Total: $<span id="total">0</span></h3>
+</section>
+
+<!-- ====== CONTACTO ====== -->
+<section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo" required>
+        <textarea placeholder="Mensaje" rows="4"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Ventanas Premium | Todos los derechos reservados</p>
+</footer>
+
+<script>
+let total = 0;
+
+function agregarCarrito(nombre, precio) {
+    const lista = document.getElementById("listaCarrito");
+    const item = document.createElement("div");
+    item.className = "carrito-item";
+    item.innerHTML = `<span>${nombre}</span><span>$${precio}</span>`;
+    lista.appendChild(item);
+
+    total += precio;
+    document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
