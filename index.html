@@ -1,213 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ventanas Premium</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Álvaro Sánchez Urbano | Portfolio</title>
 
-<style>
-/* ====== ESTILOS GENERALES ====== */
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body {
-    margin: 0;
-    background-color: #f2f2f2;
-}
+        body {
+            background: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
 
-/* ====== HEADER ====== */
-header {
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
-    color: white;
-    padding: 30px;
-    text-align: center;
-}
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-/* ====== NAV ====== */
-nav {
-    background-color: #222;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px;
-}
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        h2 {
+            color: #38bdf8;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
 
-nav a:hover {
-    color: #00ffcc;
-}
+        section {
+            padding: 70px 10%;
+        }
 
-/* ====== SECCIONES ====== */
-section {
-    padding: 40px 20px;
-}
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+        }
 
-/* ====== PRODUCTOS ====== */
-.productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
+        h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
 
-.producto {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
+        ul {
+            list-style: none;
+        }
 
-.producto img {
-    width: 100%;
-    border-radius: 8px;
-}
+        li {
+            margin-bottom: 8px;
+        }
 
-.precio {
-    font-size: 20px;
-    color: green;
-    font-weight: bold;
-}
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0b1220;
+            margin-top: 40px;
+        }
 
-button {
-    background-color: #2a5298;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .btn {
+            background: #38bdf8;
+            padding: 12px 22px;
+            border-radius: 8px;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
 
-button:hover {
-    background-color: #1e3c72;
-}
+        .btn:hover {
+            opacity: 0.9;
+        }
 
-/* ====== CARRITO ====== */
-#carrito {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.carrito-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-/* ====== FORMULARIO ====== */
-form {
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-/* ====== FOOTER ====== */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-</style>
+        @media(max-width:768px){
+            h1{font-size:2rem;}
+            section{padding:50px 5%;}
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Ventanas Premium</h1>
-    <p>Especialistas en ventanas modernas y eficientes</p>
+    <h1>Álvaro Sánchez Urbano</h1>
+    <h2>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</h2>
+    <a href="#contacto" class="btn">Contactar</a>
 </header>
 
-<nav>
-    <a href="#productos">Productos</a>
-    <a href="#carrito">Carrito</a>
-    <a href="#contacto">Contacto</a>
-</nav>
 
-<!-- ====== PRODUCTOS ====== -->
-<section id="productos">
-    <h2>Nuestros Productos</h2>
-
-    <div class="productos">
-        <div class="producto">
-            <img src="https://via.placeholder.com/300x200">
-            <h3>Ventana de Aluminio</h3>
-            <p>Aislamiento térmico y resistencia.</p>
-            <p class="precio">$150</p>
-            <button onclick="agregarCarrito('Ventana Aluminio', 150)">Agregar</button>
-        </div>
-
-        <div class="producto">
-            <img src="https://via.placeholder.com/300x200">
-            <h3>Ventana PVC</h3>
-            <p>Aislamiento acústico superior.</p>
-            <p class="precio">$180</p>
-            <button onclick="agregarCarrito('Ventana PVC', 180)">Agregar</button>
-        </div>
-
-        <div class="producto">
-            <img src="https://via.placeholder.com/300x200">
-            <h3>Ventana Corrediza</h3>
-            <p>Diseño moderno y elegante.</p>
-            <p class="precio">$200</p>
-            <button onclick="agregarCarrito('Ventana Corrediza', 200)">Agregar</button>
-        </div>
+<section id="sobre-mi">
+    <div class="card">
+        <h3>👨‍💻 Sobre mí</h3>
+        <p>
+            Profesional con formación en Desarrollo de Aplicaciones Multiplataforma y base sólida en programación.
+            Me caracterizo por el compañerismo, la responsabilidad y la capacidad de trabajo en equipo.
+            Actualmente trabajo de cara al público, lo que me ha permitido desarrollar excelentes habilidades
+            de comunicación, trato con clientes y resolución de problemas.
+        </p>
     </div>
 </section>
 
-<!-- ====== CARRITO ====== -->
-<section id="carrito">
-    <h2>Carrito de Compras</h2>
-    <div id="listaCarrito"></div>
-    <h3>Total: $<span id="total">0</span></h3>
+
+<section id="habilidades">
+    <div class="card">
+        <h3>🚀 Habilidades</h3>
+        <ul>
+            <li>✔ Programación y desarrollo de software</li>
+            <li>✔ Trabajo en equipo y compañerismo</li>
+            <li>✔ Atención al cliente</li>
+            <li>✔ Resolución de problemas</li>
+            <li>✔ Responsabilidad y compromiso laboral</li>
+            <li>✔ Adaptación rápida al aprendizaje de nuevas tecnologías</li>
+        </ul>
+    </div>
 </section>
 
-<!-- ====== CONTACTO ====== -->
-<section id="contacto">
-    <h2>Contacto</h2>
-    <form>
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo" required>
-        <textarea placeholder="Mensaje" rows="4"></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+
+<section id="formacion">
+    <div class="card">
+        <h3>🎓 Formación académica</h3>
+        <ul>
+            <li>📘 Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</li>
+            <li>📘 3 años en Ingeniería Informática</li>
+            <li>📘 Bachillerato</li>
+            <li>📘 Educación Secundaria Obligatoria (ESO)</li>
+        </ul>
+    </div>
 </section>
+
+
+<section id="experiencia">
+    <div class="card">
+        <h3>💼 Experiencia laboral</h3>
+        <p>
+            Trabajo actual de atención al público en tienda especializada en venta de ventanas.
+            Gestión directa con clientes, asesoramiento, ventas y soporte postventa.
+            Experiencia desarrollando habilidades sociales, responsabilidad y organización.
+        </p>
+    </div>
+</section>
+
+
+<section id="objetivo">
+    <div class="card">
+        <h3>🎯 Objetivo profesional</h3>
+        <p>
+            Busco oportunidades para iniciar mi carrera en el sector tecnológico como desarrollador,
+            donde pueda aplicar mis conocimientos técnicos, seguir aprendiendo y crecer profesionalmente
+            aportando valor al equipo.
+        </p>
+    </div>
+</section>
+
+
+<section id="contacto">
+    <div class="card">
+        <h3>📞 Contacto</h3>
+        <p><strong>Móvil:</strong> 697 12 56 56</p>
+        <p><strong>GitHub:</strong> mochi845.github.io</p>
+    </div>
+</section>
+
 
 <footer>
-    <p>© 2026 Ventanas Premium | Todos los derechos reservados</p>
+    <p>© 2026 Álvaro Sánchez Urbano — Portfolio Profesional</p>
 </footer>
-
-<script>
-let total = 0;
-
-function agregarCarrito(nombre, precio) {
-    const lista = document.getElementById("listaCarrito");
-    const item = document.createElement("div");
-    item.className = "carrito-item";
-    item.innerHTML = `<span>${nombre}</span><span>$${precio}</span>`;
-    lista.appendChild(item);
-
-    total += precio;
-    document.getElementById("total").innerText = total;
-}
-</script>
 
 </body>
 </html>
